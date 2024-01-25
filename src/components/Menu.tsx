@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 
 export default function MenuList() {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const navigate = useNavigate();
   return (
