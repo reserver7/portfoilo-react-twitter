@@ -2,6 +2,7 @@ import { BsHouse } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { MdLogout, MdLogin } from "react-icons/md";
+import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from "react";
 import AuthContext from "context/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
@@ -22,6 +23,10 @@ export default function MenuList() {
         <button type="button" onClick={() => navigate("/profile")}>
           <BiUserCircle />
           Profile
+        </button>
+        <button type="button" onClick={() => navigate("/search")}>
+          <AiOutlineSearch />
+          Search
         </button>
         {user === null ? (
           <button type="button" onClick={() => navigate("/users/login")}>
