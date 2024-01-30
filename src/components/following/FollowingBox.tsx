@@ -1,17 +1,18 @@
 import AuthContext from "context/AuthContext";
 import {
+  addDoc,
   arrayRemove,
   arrayUnion,
+  collection,
   doc,
   onSnapshot,
   setDoc,
   updateDoc,
-  addDoc,
-  collection,
 } from "firebase/firestore";
 import { db } from "firebaseApp";
 import { PostProps } from "pages/home";
 import { useCallback, useContext, useEffect, useState } from "react";
+import useTranslation from "hooks/useTranslation";
 
 import { toast } from "react-toastify";
 
@@ -26,10 +27,7 @@ interface UserProps {
 export default function FollowingBox({ post }: FollowingProps) {
   const { user } = useContext(AuthContext);
   const [postFollowers, setPostFollowers] = useState<any>([]);
-
-  const truncate = (str: string) => {
-    return str?.length > 10 ? str.substring(0, 10) + "..." : str;
-  };
+  const t = useTranslation();
 
   const onClickFollow = async (e: any) => {
     e.preventDefault();
@@ -57,19 +55,17 @@ export default function FollowingBox({ post }: FollowingProps) {
         );
 
         // 팔로잉 알림 생성
-        if (user?.uid !== post?.uid) {
-          await addDoc(collection(db, "notifications"), {
-            createdAt: new Date()?.toLocaleDateString("ko", {
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-            }),
-            content: `${user?.email || user?.displayName}가 팔로우를 했습니다.`,
-            uid: post?.uid,
-            isRead: false,
-            url: "#",
-          });
-        }
+        await addDoc(collection(db, "notifications"), {
+          createdAt: new Date()?.toLocaleDateString("ko", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
+          content: `${user?.email || user?.displayName}가 팔로우를 했습니다.`,
+          url: "#",
+          isRead: false,
+          uid: post?.uid,
+        });
 
         toast.success("팔로우를 했습니다.");
       }
@@ -128,7 +124,7 @@ export default function FollowingBox({ post }: FollowingProps) {
             className="post__following-btn"
             onClick={onClickDeleteFollow}
           >
-            Following
+            {t("BUTTON_FOLLOWING")}
           </button>
         ) : (
           <button
@@ -136,7 +132,7 @@ export default function FollowingBox({ post }: FollowingProps) {
             className="post__follow-btn"
             onClick={onClickFollow}
           >
-            Follower
+            {t("BUTTON_FOLLOW")}
           </button>
         ))}
     </>
