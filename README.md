@@ -4,6 +4,8 @@
 - URL: [https://portfoilo-react-twitter.vercel.app/](https://portfoilo-react-twitter.vercel.app/)
 - [Pull Request](https://github.com/reserver7/portfoilo-react-twitter/pulls?q=is%3Apr+is%3Aclosed) 탭에서 각 기능별 코드를 확인할 수 있습니다.
 
+  ![1](https://github.com/reserver7/portfoilo-react-twitter/assets/78328320/ddfb368b-5761-49a3-9f06-bd7233fb2ac5)
+
 <br />
 
 # 프로젝트 설명
