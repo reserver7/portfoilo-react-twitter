@@ -2,7 +2,7 @@
 
 - React, Firebase를 이용한 실시간 트위터 프로젝트 입니다.
 - URL: [https://portfoilo-react-twitter.vercel.app/](https://portfoilo-react-twitter.vercel.app/)
-- [Pull Request](https://github.com/jen-frontend/fastcampus-react-twitter/pulls?q=is%3Apr+is%3Aclosed) 탭에서 각 기능별 코드를 확인할 수 있습니다.
+- [Pull Request](https://github.com/reserver7/portfoilo-react-twitter/pulls?q=is%3Apr+is%3Aclosed) 탭에서 각 기능별 코드를 확인할 수 있습니다.
 
 <br />
 
